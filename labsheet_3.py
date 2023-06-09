@@ -273,7 +273,7 @@ class GUI:
         self.areacont_frame.place(x=283, y=453, width=265, height=120)
         self.areacont_label = Label(
             self.tab1,
-            text="Minimum Area Contour",
+            text="Minimum Contour Area",
             bg="#42dfc9",
             fg="#141835",
             font=self.frame_font,
