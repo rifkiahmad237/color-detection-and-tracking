@@ -221,7 +221,7 @@ class GUI:
         self.servcont_frame.place(x=10, y=453, width=265, height=245)
         self.servcont_label = Label(
             self.tab1,
-            text="Servo Manual Control",
+            text="Servo Calibration",
             bg="#42dfc9",
             fg="#141835",
             font=self.frame_font,
