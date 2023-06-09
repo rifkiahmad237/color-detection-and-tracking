@@ -221,7 +221,7 @@ class GUI:
         self.servcont_frame.place(x=10, y=453, width=265, height=245)
         self.servcont_label = Label(
             self.tab1,
-            text="Servo Control",
+            text="Servo Manual Control",
             bg="#42dfc9",
             fg="#141835",
             font=self.frame_font,
@@ -273,7 +273,7 @@ class GUI:
         self.areacont_frame.place(x=283, y=453, width=265, height=120)
         self.areacont_label = Label(
             self.tab1,
-            text="Area Control",
+            text="Minimum Area Contour",
             bg="#42dfc9",
             fg="#141835",
             font=self.frame_font,
@@ -299,13 +299,21 @@ class GUI:
             font=self.frame_font,
         )
         self.coordinate_label.place(x=283, y=582, width=265, height=20)
-        self.coordX_label = Label(self.tab1,text="X", font=self.label_font, fg="#43dfca")
+        self.coordX_label = Label(
+            self.tab1, text="X", font=self.label_font, fg="#43dfca"
+        )
         self.coordX_label.place(x=300, y=632, width=30, height=30)
-        self.coordX_val = Label(self.tab1,text="0", font=self.label_font, fg="#141835", bg="white")
+        self.coordX_val = Label(
+            self.tab1, text="0", font=self.label_font, fg="#141835", bg="white"
+        )
         self.coordX_val.place(x=340, y=632, width=70, height=30)
-        self.coordX_label = Label(self.tab1,text="Y", font=self.label_font, fg="#43dfca")
+        self.coordX_label = Label(
+            self.tab1, text="Y", font=self.label_font, fg="#43dfca"
+        )
         self.coordX_label.place(x=420, y=632, width=30, height=30)
-        self.coordY_val = Label(self.tab1,text="0", font=self.label_font, fg="#141835", bg="white")
+        self.coordY_val = Label(
+            self.tab1, text="0", font=self.label_font, fg="#141835", bg="white"
+        )
         self.coordY_val.place(x=460, y=632, width=70, height=30)
 
         # frame hsv control
@@ -430,11 +438,10 @@ class GUI:
         self.help_label = Label(self.tab2, image=self.help_image)
         self.help_label.place(x=180, y=70, width=720, height=480)
         self.image2 = Image.open("img/about_dev.png")
-        # self.image2_resize = self.image2.resize((160, 240))
         self.about_image = ImageTk.PhotoImage(self.image2)
         self.about_label = Label(self.tab3, image=self.about_image)
         self.about_label.place(x=13, y=40)
-        # self.about_label.pack()
+
     def style_window(self):
         self.window.option_add("*background", "#141835")
         self.window.option_add("*foreground", "white")
@@ -555,7 +562,7 @@ def serial_data2(img, x, y):
 
     centerX = int(cols / 2)
     centerY = int(rows / 2)
-    print("Center x: ",centerX, "   Center y:", centerY)
+    print("Center x: ", centerX, "   Center y:", centerY)
     # print("row :", rows)
 
     objectX = int(x + 5)
@@ -564,7 +571,6 @@ def serial_data2(img, x, y):
     movement = 0.7
     # angleSet = 45
     angleSet = 90
-
 
     if objectX > centerX + angleSet:
         panAngle += movement
@@ -750,6 +756,7 @@ def set_hsv(h_lower, s_lower, v_lower, h_upper, s_upper, v_upper):
     my_gui.s_bawah.set(s_lower)
     my_gui.v_atas.set(v_upper)
     my_gui.v_bawah.set(v_lower)
+
 
 def update_coordinate(x, y):
     my_gui.coordX_val.config(text=str(x))
