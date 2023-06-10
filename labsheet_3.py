@@ -539,7 +539,6 @@ def select_port():
     try:
         if my_gui.conn_button.config("text")[-1] == "Connect":
             serial_begin = serial.Serial(port, "9600", timeout=5)
-            # serial_begin = serial.Serial(port, "115200", timeout=5)
             my_gui.conn_button.config(text="Disconnect", bg="#7883c1", width="100")
             serial_condition = True
             messagebox.showinfo("Status Port", "Terhubung dengan Port " + port)
@@ -561,7 +560,6 @@ def serial_data1(panAngle, tiltAngle):
     serial_begin.write(
         (str(int(panAngle)) + "a" + str(int(tiltAngle)) + "b").encode("utf-8")
     )
-    # print(panAngle, tiltAngle)
 
 
 def serial_data2(img, x, y):
@@ -599,10 +597,6 @@ def serial_data2(img, x, y):
         tiltAngle += movement
         if tiltAngle >= 180:
             tiltAngle = 180
-
-    # serial_begin.write(
-    #     ("a" + str(int(panAngle)) + "b" + str(int(tiltAngle))).encode("utf-8")
-    # )
     serial_begin.write(
         (str(int(panAngle)) + "a" + str(int(tiltAngle)) + "b").encode("utf-8")
     )
@@ -648,19 +642,12 @@ def select_color():
         global cap
         cap = cv2.VideoCapture(cam_index)
         color = my_gui.color_var.get()
-        # if color == "Merah":
-        #     set_hsv(136, 87, 111, 180, 255, 255)
-        # elif color == "Hijau":
-        #     set_hsv(25, 52, 72, 102, 255, 255)
-        # else:
-        #     set_hsv(94, 90, 2, 120, 255, 255)
         if color == "Merah":
             set_hsv(136, 87, 111, 179, 255, 255)
         elif color == "Hijau":
             set_hsv(40, 50, 50, 80, 255, 255)
         else:
             set_hsv(90, 50, 50, 130, 255, 255)
-        # threading.Thread(target=detect_color(color)).start
         detect_color()
         my_gui.color_button.config(text="RESET", bg="#7883c1")
 
