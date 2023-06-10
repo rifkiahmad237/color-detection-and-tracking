@@ -282,13 +282,21 @@ class GUI:
         self.area_scale = Scale(
             self.tab1,
             variable=self.var_area,
-            from_=200,
+            from_=500,
             to=5000,
             orient=HORIZONTAL,
             troughcolor="#43dfca",
         )
-        self.area_scale.place(x=321, y=505, width=190, height=40)
+        self.area_scale.place(x=321, y=485, width=190, height=40)
 
+        self.area_label = Label(
+            self.tab1, text="Area", font=self.label_font, fg="#43dfca"
+        )
+        self.area_label.place(x=350, y=532, width=50, height=30)
+        self.areaVal_label = Label(
+            self.tab1, text="0", font=self.label_font, fg="#141835", bg="white"
+        )
+        self.areaVal_label.place(x=410, y=532, width=70, height=30)
         self.coordinate_frame = Frame(self.tab1, background="#2d325c", relief="flat")
         self.coordinate_frame.place(x=283, y=582, width=265, height=116)
         self.coordinate_label = Label(
@@ -647,7 +655,7 @@ def select_color():
         # else:
         #     set_hsv(94, 90, 2, 120, 255, 255)
         if color == "Merah":
-            set_hsv(0, 50, 50, 10, 255, 255)
+            set_hsv(136, 87, 111, 179, 255, 255)
         elif color == "Hijau":
             set_hsv(40, 50, 50, 80, 255, 255)
         else:
@@ -693,6 +701,7 @@ def detect_color():
         for contour in contours:
             area = cv2.contourArea(contour)
             if area > my_gui.var_area.get():
+                my_gui.areaVal_label.config(text=str(area))
                 (x, y), radius = cv2.minEnclosingCircle(contour)
                 center = (int(x), int(y))
                 circle = cv2.circle(rgb, center, 10, (66, 223, 201), 3)
