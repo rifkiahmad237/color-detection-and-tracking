@@ -282,8 +282,8 @@ class GUI:
         self.area_scale = Scale(
             self.tab1,
             variable=self.var_area,
-            from_=500,
-            to=5000,
+            from_=0,
+            to=7000,
             orient=HORIZONTAL,
             troughcolor="#43dfca",
         )
