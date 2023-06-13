@@ -283,7 +283,7 @@ class GUI:
             self.tab1,
             variable=self.var_area,
             from_=0,
-            to=7000,
+            to=10000,
             orient=HORIZONTAL,
             troughcolor="#43dfca",
         )
@@ -574,7 +574,7 @@ def serial_data2(img, x, y):
     objectX = int(x + 5)
     objectY = int(y + 5)
 
-    movement = 0.7
+    movement = 2
     # angleSet = 45
     angleSet = 90
 
@@ -643,7 +643,7 @@ def select_color():
         cap = cv2.VideoCapture(cam_index)
         color = my_gui.color_var.get()
         if color == "Merah":
-            set_hsv(136, 87, 111, 179, 255, 255)
+            set_hsv(0, 50, 50, 10, 255, 255)
         elif color == "Hijau":
             set_hsv(40, 50, 50, 80, 255, 255)
         else:
