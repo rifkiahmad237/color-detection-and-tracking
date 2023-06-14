@@ -574,7 +574,7 @@ def serial_data2(img, x, y):
     objectX = int(x + 5)
     objectY = int(y + 5)
 
-    movement = 2
+    movement = 1
     # angleSet = 45
     angleSet = 90
 
