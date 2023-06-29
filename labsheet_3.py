@@ -568,14 +568,11 @@ def serial_data2(img, x, y):
 
     centerX = int(cols / 2)
     centerY = int(rows / 2)
-    print("Center x: ", centerX, "   Center y:", centerY)
-    # print("row :", rows)
 
     objectX = int(x + 5)
     objectY = int(y + 5)
 
     movement = 1
-    # angleSet = 45
     angleSet = 90
 
     if objectX > centerX + angleSet:
@@ -713,7 +710,7 @@ def detect_color():
 
     except PermissionError as e:
         messagebox.showinfo("Port Sibuk", "Pastikan Memilih Port yang Sesuai")
-        detect_color(select_color)
+        detect_color()
 
     except cv2.error as e:
         messagebox.showinfo("Warna di RESET", "silahkan SET warna terlebih dahulu")
