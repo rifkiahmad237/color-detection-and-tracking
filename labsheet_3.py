@@ -556,12 +556,14 @@ def select_port():
         )
 
 
+# fungsi komunikasi serial 1
 def serial_data1(panAngle, tiltAngle):
     serial_begin.write(
         (str(int(panAngle)) + "a" + str(int(tiltAngle)) + "b").encode("utf-8")
     )
 
 
+# fungsi komunikasi serial 2
 def serial_data2(img, x, y):
     global panAngle, tiltAngle
     rows, cols, _ = img.shape
@@ -742,6 +744,7 @@ def webcam_frame(img, label, x, y):
     label.place(x=x, y=y)
 
 
+# fungsi mengatur nilai batas bawah dan atas HSV
 def set_hsv(h_lower, s_lower, v_lower, h_upper, s_upper, v_upper):
     my_gui.h_bawah.set(h_lower)
     my_gui.h_atas.set(h_upper)
@@ -751,6 +754,7 @@ def set_hsv(h_lower, s_lower, v_lower, h_upper, s_upper, v_upper):
     my_gui.v_bawah.set(v_lower)
 
 
+# fungsi update koordinat
 def update_coordinate(x, y):
     my_gui.coordX_val.config(text=str(x))
     my_gui.coordY_val.config(text=str(y))
