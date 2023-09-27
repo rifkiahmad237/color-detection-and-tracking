@@ -266,6 +266,7 @@ class GUI:
             state="disabled",
             troughcolor="#43dfca",
         )
+        # self.tilt_scale.set(10)
         self.tilt_scale.place(x=38, y=605, width=210, height=40)
 
         # frame area control
